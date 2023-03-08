@@ -10,11 +10,11 @@ const App = (): JSX.Element => {
     try {
       const response = await axios({
         method: "POST",
-        url: "https://jeffrey-work.com/backend/api",
+        url: "https://jeffrey-work.com/api",
         data: formData,
       });
       window.open(
-        `https://jeffrey-work.com/backend/share?shareImg=${response.data.shareImg}`
+        `https://jeffrey-work.com/share?shareImg=${response.data.shareImg}`
       );
     } catch (err: any) {
       console.log(err);
