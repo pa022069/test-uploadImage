@@ -12,7 +12,10 @@ const App = (): JSX.Element => {
         url: "http://localhost:4001/api",
         data: formData,
       });
-      console.log("response", response);
+      window.open(
+        `http://localhost:4001/share?shareImg=${response.data.shareImg}`
+      );
+      console.log("response", response.data);
     } catch (err: any) {
       console.log(err);
     }
