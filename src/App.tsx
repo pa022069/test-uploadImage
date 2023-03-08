@@ -5,7 +5,8 @@ const App = (): JSX.Element => {
     if (!e.target.files || e.target.files.length === 0) return;
     const file = e.target.files[0];
     const formData = new FormData();
-    formData.append("imageSrc", file);
+    formData.append("imageSrc", file, `name-${Date.now()}.png`);
+    formData.append("name", "name");
     try {
       const response = await axios({
         method: "POST",
@@ -15,7 +16,6 @@ const App = (): JSX.Element => {
       window.open(
         `http://localhost:4001/share?shareImg=${response.data.shareImg}`
       );
-      console.log("response", response.data);
     } catch (err: any) {
       console.log(err);
     }
